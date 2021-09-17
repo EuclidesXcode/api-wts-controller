@@ -22,7 +22,7 @@ class App {
 
     private async database () {
       try {
-        await mongoose.connect('mongodb+srv://admin:Gattes2013@Database.xabw8.mongodb.net/Database?retryWrites=true&w=majority')
+        await mongoose.connect(`mongodb+srv://admin:${process.env.PASSWORD_DB_CONNECTION}@${process.env.DB_NAME}.xabw8.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
       } catch (error) {
         console.log('Error on connection', error)
       }

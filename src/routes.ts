@@ -1,10 +1,16 @@
 import { Router } from 'express'
-import ClientController from './controllers/ClientController'
+import { createClientController } from './useCase/CreateClient'
 
 const routes = Router()
 
-routes.get('/clients', ClientController.index)
-routes.post('/clients', ClientController.create)
-routes.delete('/clients', ClientController.delete)
+routes.get('/clients', (req, res) => {
+  return createClientController.hendle(req, res)
+})
+routes.post('/clients', (req, res) => {
+  return createClientController.hendle(req, res)
+})
+routes.delete('/clients', (req, res) => {
+  return createClientController.hendle(req, res)
+})
 
 export default routes
