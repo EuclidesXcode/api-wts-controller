@@ -22,7 +22,8 @@ class App {
 
     private async database () {
       try {
-        await mongoose.connect(`mongodb+srv://admin:${process.env.PASSWORD_DB_CONNECTION}@${process.env.DB_NAME}.xabw8.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
+        const response = await mongoose.connect('mongodb+srv://admin:Gattes2013@database.xabw8.mongodb.net/Database?retryWrites=true&w=majority')
+        console.log('Connection success: ', response.connections.length && 'true')
       } catch (error) {
         console.log('Error on connection', error)
       }
@@ -34,4 +35,3 @@ class App {
 }
 
 export default new App().express
-
