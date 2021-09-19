@@ -12,6 +12,7 @@ export class CreateClientController {
     const { name, phone } = req.body
 
     try {
+      console.log('entrou para cadastrar')
       await this.createClientUseCase.execute({ name, phone })
 
       return res.status(constants.HTTP_CODE.NO_CONTENT).send()
