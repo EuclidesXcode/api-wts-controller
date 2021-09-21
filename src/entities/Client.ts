@@ -1,4 +1,4 @@
-import { uuid } from 'uuidv4'
+import { v4 as uuidv4 } from 'uuid'
 
 export class Client {
   public readonly id: string
@@ -10,7 +10,7 @@ export class Client {
     Object.assign(this, props)
 
     if (!id) {
-      this.id = uuid()
+      this.id = uuidv4()
     }
   }
 }

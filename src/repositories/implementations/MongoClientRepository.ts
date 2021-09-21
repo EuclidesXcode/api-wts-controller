@@ -7,13 +7,14 @@ export class MongoClientRepository implements IClientRepository {
   async findByPhone (phone: string): Promise<Client> {
     let response = null
 
+    console.log('phone', phone)
     try {
       response = await ClientModel.findOne({ phone: phone })
-      console.log('procurou e achou: ', response)
+      console.log('procurou e achou: ', response.name)
       if (!response) return
       const receiveClient = new Client(response)
 
-      console.log('Criou o repository Client: ', receiveClient)
+      console.log('Criou o repository Client: ', receiveClient.name)
       return receiveClient
     } catch (error) {
       throw new Error(error)
@@ -27,7 +28,7 @@ export class MongoClientRepository implements IClientRepository {
       response = await ClientModel.create(client)
 
       console.log('criou e retornou: ', response)
-      return response.data
+      return response
     } catch (error) {
       throw new Error(error)
     }
