@@ -13,21 +13,25 @@ export class ClientUseCase {
 
   async findOne (payload: IFindOneClienteResquestDTO) {
     const { _doc } = await this.clientRepository.findByPhone(payload.phone)
+    console.log('Achou esse cara: ', _doc)
 
     const client = new Client(_doc)
-    console.log('esse data do findOne: ', client)
 
     return client
   }
 
-  async createClient (data: ICreateClienteResquestDTO) {
-    const clientAlreadyExists = await this.clientRepository.findByPhone(data.phone)
+  async createClient (payload: ICreateClienteResquestDTO) {
+    const clientAlreadyExists = await this.clientRepository.findByPhone(payload.phone)
 
     if (clientAlreadyExists) {
       throw new Error('Client already exists!')
     }
 
-    const client = new Client(data)
+    console.log("Payload para cadastro: ", payload)
+
+    const client = new Client(payload)
+
+    console.log("Client para cadastro: ", client)
 
     await this.clientRepository.save(client)
   }

@@ -23,7 +23,7 @@ class App {
     private async database () {
       try {
         const response = await mongoose.connect('mongodb+srv://admin:Gattes2013@database.xabw8.mongodb.net/Database?retryWrites=true&w=majority')
-        console.log('Connection success: ', response.connections.length && 'true')
+        console.log('Connection: ', response.connections.length && 'true')
       } catch (error) {
         console.log('Error on connection', error)
       }

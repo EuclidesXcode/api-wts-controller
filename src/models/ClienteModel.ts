@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose'
 
- interface ClientInterface extends Document {
-     email?: string,
+ interface ClientInterface {
+     name?: string,
      phone: string
  }
 

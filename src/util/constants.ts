@@ -1,10 +1,6 @@
 'use-strict'
 
 export const constants = {
-  API_INFO: {
-    CONTENT_TYPE_APPLICATION_JSON: 'application/json',
-    UUID_VERSION: 4
-  },
   ERROR_MESSAGE: {
     ID_NOT_VALID: 'O identificador não é válido',
     PARAMETER_REQUIRED: 'O parâmetro \'|NAME|\' é obrigatório',
@@ -34,13 +30,5 @@ export const constants = {
     FORBIDDEN: 403,
     NOT_FOUND: 404,
     INTERNAL_SERVER_ERROR: 500
-  },
-  OPERATION: {
-    RESPONSE: {
-      SUCCESS: 'SUCCESS', // Sucesso na operação
-      ERROR: 'ERROR', // Erro na operação. Não haverá retentativa
-      PENDING: 'PENDING', // Operação pendente de processamento
-      RETRY: 'RETRY' // Erro na operação e haverá retentativa
-    }
   }
 }
